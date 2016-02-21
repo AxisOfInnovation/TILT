@@ -18,7 +18,7 @@ class OpModeRegistrar() : OpModeRegister
         Log.d( "tilt.OpModeRegistrar", "Discovering OpModes!" );
 
         // the op modes that are:
-        // - public
+        // - instantiable
         // - subclasses of OpMode
         // - have the @RegisterOpMode annotation
         val opModeClasses = ClassFilter().subclassOf( OpMode::class.java ).with( RegisterOpMode::class.java ).get();
