@@ -1,7 +1,7 @@
 package org.axisofinnovation.tilt.config
 
 import android.util.Log
-import org.axisofinnovation.tilt.utils.FileUtils
+import org.axisofinnovation.tilt.utils.readFileLines
 import java.io.File
 import java.util.*
 
@@ -47,7 +47,7 @@ class Configuration( private val file: File )
      */
     private fun parseConfig()
     {
-        val lines = FileUtils.readFileLines( file );
+        val lines = readFileLines( file );
 
         var parsingMode = ParsingMode.NONE; // keeps track of what we're currently parsing
 

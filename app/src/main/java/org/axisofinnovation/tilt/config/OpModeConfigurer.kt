@@ -3,7 +3,8 @@ package org.axisofinnovation.tilt.config
 import android.util.Log
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import org.axisofinnovation.tilt.utils.FieldFilter
-import org.axisofinnovation.tilt.utils.FileUtils
+import org.axisofinnovation.tilt.utils.getConfig
+import org.axisofinnovation.tilt.utils.saveConfig
 
 /**
  * Configures the fields marked with the @Configurable annotation
@@ -27,7 +28,7 @@ class OpModeConfigurer( private val clazz: Class< out OpMode > )
     {
         Log.d( "tilt.OpModeConfigurer", "Configuring properties in $name" );
 
-        val config = FileUtils.getConfig().getProgram( name ); // get the config for this program
+        val config = getConfig().getProgram( name ); // get the config for this program
 
         // all configurable properties in this
         val fieldFinder = FieldFilter(clazz).with( Configurable::class.java );
@@ -38,7 +39,7 @@ class OpModeConfigurer( private val clazz: Class< out OpMode > )
         configure( config, fieldFinder, Double::class.java );
         configure( config, fieldFinder, String::class.java );
 
-        FileUtils.saveConfig(); // save the new configuration after each opmode
+        saveConfig(); // save the new configuration after each opmode
     }
 
     /**
