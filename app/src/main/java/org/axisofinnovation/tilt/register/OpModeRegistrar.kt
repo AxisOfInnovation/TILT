@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister
 import org.axisofinnovation.tilt.config.OpModeConfigurer
-import org.axisofinnovation.tilt.utils.ClassFinder
+import org.axisofinnovation.tilt.utils.ClassFilter
 
 class OpModeRegistrar() : OpModeRegister
 {
@@ -21,7 +21,7 @@ class OpModeRegistrar() : OpModeRegister
         // - public
         // - subclasses of OpMode
         // - have the @RegisterOpMode annotation
-        val opModeClasses = ClassFinder().subclassOf( OpMode::class.java ).with( RegisterOpMode::class.java ).get();
+        val opModeClasses = ClassFilter().subclassOf( OpMode::class.java ).with( RegisterOpMode::class.java ).get();
 
         // register all the OpModes with the manager
         for( opMode in opModeClasses )

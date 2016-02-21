@@ -2,7 +2,7 @@ package org.axisofinnovation.tilt.config
 
 import android.util.Log
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import org.axisofinnovation.tilt.utils.FieldFinder
+import org.axisofinnovation.tilt.utils.FieldFilter
 import org.axisofinnovation.tilt.utils.FileUtils
 
 /**
@@ -30,7 +30,7 @@ class OpModeConfigurer( private val clazz: Class< out OpMode > )
         val config = FileUtils.getConfig().getProgram( name ); // get the config for this program
 
         // all configurable properties in this
-        val fieldFinder = FieldFinder( clazz ).with( Configurable::class.java );
+        val fieldFinder = FieldFilter(clazz).with( Configurable::class.java );
 
         // configure all those things
         configure( config, fieldFinder, Boolean::class.java );
@@ -51,7 +51,7 @@ class OpModeConfigurer( private val clazz: Class< out OpMode > )
      * @param[clazz]
      *          The class of the fields to search for.
      */
-    private fun configure( config: ProgramConfig, fieldFinder: FieldFinder, clazz: Class< * > )
+    private fun configure( config: ProgramConfig, fieldFinder: FieldFilter, clazz: Class< * > )
     {
         val fields = fieldFinder.getFieldsOfType( clazz );
 
