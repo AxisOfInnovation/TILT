@@ -4,7 +4,7 @@ import android.util.Log
 import com.qualcomm.robotcore.eventloop.opmode.OpMode
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister
-import org.axisofinnovation.tilt.config.OpModeConfigurer
+import org.axisofinnovation.tilt.config.configure
 import org.axisofinnovation.tilt.utils.ClassFilter
 
 class OpModeRegistrar() : OpModeRegister
@@ -55,7 +55,7 @@ class OpModeRegistrar() : OpModeRegister
 
             // configure the properties in the OpMode now
             // (ignore the cast, the subclassOf( ... ) filter ensures this is true
-            OpModeConfigurer( opMode as Class< out OpMode > ).configure( name );
+            configure( opMode as Class< out OpMode >, name );
         }
     }
 
