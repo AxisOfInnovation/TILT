@@ -1,6 +1,6 @@
 package org.axisofinnovation.tilt
 
-import org.axisofinnovation.tilt.config.configure
+import android.support.annotation.CallSuper;
 import org.axisofinnovation.tilt.hardware.fetchHardware
 
 /**
@@ -10,25 +10,19 @@ import org.axisofinnovation.tilt.hardware.fetchHardware
 abstract class OpMode : com.qualcomm.robotcore.eventloop.opmode.OpMode()
 {
 
-    /**
-     * If you are looking to do initialization code, please
-     * do it in the `initialize` method supplied by this class.
-     */
+    //
+    // Overrides
+    //
+
+    @CallSuper
     final override fun init()
     {
-        // do the things we need to do
         fetchHardware( this );
-        configure( OpMode::class.java, "" );
-
-        // actually initialize the robot
-        initialize();
     }
 
     //
     // Abstract
     //
-
-    abstract fun initialize();
 
     abstract override fun loop();
 

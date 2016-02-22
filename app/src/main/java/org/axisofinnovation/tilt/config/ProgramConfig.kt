@@ -204,7 +204,7 @@ class ProgramConfig( val name: String ) : Comparable< ProgramConfig >
                 "";
             }
 
-        }
+        };
     }
 
     /**
