@@ -15,15 +15,9 @@ abstract class OpMode : com.qualcomm.robotcore.eventloop.opmode.OpMode()
     //
 
     @CallSuper
-    final override fun init()
+    override fun init()
     {
         fetchHardware( this );
     }
-
-    //
-    // Abstract
-    //
-
-    abstract override fun loop();
 
 }

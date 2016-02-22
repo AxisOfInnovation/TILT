@@ -268,7 +268,7 @@ class FieldFilter( val clazz: Class< * >, val reference: Any? = null )
 
         for ( field in fields )
         {
-            if ( field.type.equals( type ) )
+            if ( type.isAssignableFrom( field.type ) )
             {
                 list.add( field );
             }
