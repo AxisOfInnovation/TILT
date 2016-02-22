@@ -21,12 +21,12 @@ class OpModeRegistrar() : OpModeRegister
         // - instantiable
         // - subclasses of OpMode
         // - have the @RegisterOpMode annotation
-        val opModeClasses = ClassFilter().subclassOf( OpMode::class.java ).with( RegisterOpMode::class.java ).get();
+        val opModeClasses = ClassFilter().subclassOf( OpMode::class.java ).with( Register::class.java ).get();
 
         // register all the OpModes with the manager
         for( opMode in opModeClasses )
         {
-            val annotationName = opMode.getAnnotation( RegisterOpMode::class.java ).value;
+            val annotationName = opMode.getAnnotation( Register::class.java ).value;
 
             // the name the
             val name =
