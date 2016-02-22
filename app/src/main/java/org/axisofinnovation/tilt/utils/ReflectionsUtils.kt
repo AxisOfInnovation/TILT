@@ -231,6 +231,25 @@ class FieldFilter( val clazz: Class< out OpMode > )
         return this;
     }
 
+    /**
+     * Removes all fields which don't have the specified modifier.
+     *
+     * @param[modifier]
+     *          The modifier to filter for (see Modifier class)
+     * @return The object to chain calls.
+     */
+    fun with( modifier: Int ): FieldFilter {
+        val iter = fields.iterator();
+        while ( iter.hasNext() )
+        {
+            val field = iter.next();
+
+            if ( field.modifiers and modifier == 0 ) iter.remove();
+        }
+
+        return this;
+    }
+
     //
     // Getters
     //

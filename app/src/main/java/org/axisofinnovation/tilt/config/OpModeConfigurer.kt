@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import org.axisofinnovation.tilt.utils.FieldFilter
 import org.axisofinnovation.tilt.utils.getConfig
 import org.axisofinnovation.tilt.utils.saveConfig
+import java.lang.reflect.Modifier
 
 //
 // Actions
@@ -24,7 +25,7 @@ fun configure( clazz: Class< out OpMode >, name: String )
     val config = getConfig().getProgram( name ); // get the config for this program
 
     // all configurable properties in this
-    val fieldFinder = FieldFilter( clazz ).with( Configurable::class.java );
+    val fieldFinder = FieldFilter( clazz ).with( Configurable::class.java ).with( Modifier.STATIC );
 
     // configure all those things
     configure( config, fieldFinder, Boolean::class.java );
