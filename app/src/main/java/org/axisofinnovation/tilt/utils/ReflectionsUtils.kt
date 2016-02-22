@@ -176,8 +176,16 @@ class ClassFilter
 /**
  * Utility class for locating Configurable properties in a class.
  */
-class FieldFilter( val clazz: Class< out OpMode > )
+class FieldFilter( val clazz: Class< out OpMode >, val reference: Any? = null )
 {
+
+    //
+    // Constructors
+    //
+
+    constructor( clazz: Class< out OpMode > ) : this( clazz, null );
+
+    constructor( reference: OpMode ) : this( reference.javaClass, reference );
 
     //
     // Fields (literally lol)
@@ -192,19 +200,9 @@ class FieldFilter( val clazz: Class< out OpMode > )
         // well, simple. For maximum code reuse, we have a chain of inheritance
         // in our OpMode layout, so we don't want to lose the configurability of
         // the super classes by only looking at the lowest class's configurations.
-        val allFields = clazz.fields;
-
-        val fields = LinkedList< Field >();
-
-        for ( field in allFields )
-        {
-            if ( Modifier.isStatic( field.modifiers ) )
-            {
-                fields.add( field );
-            }
-        }
-
-        fields;
+        val list = LinkedList< Field >();
+        list.addAll( clazz.fields );
+        list;
     }
 
     //
@@ -238,7 +236,8 @@ class FieldFilter( val clazz: Class< out OpMode > )
      *          The modifier to filter for (see Modifier class)
      * @return The object to chain calls.
      */
-    fun with( modifier: Int ): FieldFilter {
+    fun with( modifier: Int ): FieldFilter
+    {
         val iter = fields.iterator();
         while ( iter.hasNext() )
         {
