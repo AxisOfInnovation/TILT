@@ -194,7 +194,7 @@ class FieldFilter( val clazz: Class< out OpMode > )
         // the super classes by only looking at the lowest class's configurations.
         val allFields = clazz.fields;
 
-        val fields = LinkedList<Field>();
+        val fields = LinkedList< Field >();
 
         for ( field in allFields )
         {

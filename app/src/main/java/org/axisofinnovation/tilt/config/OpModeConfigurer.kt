@@ -19,12 +19,12 @@ import org.axisofinnovation.tilt.utils.saveConfig
  */
 fun configure( clazz: Class< out OpMode >, name: String )
 {
-    Log.d( "tilt.OpModeConfigurer", "Configuring properties in $name" );
+    Log.d( "tilt.OpModeConfigurer", "Configuring properties in ${clazz.simpleName}" );
 
     val config = getConfig().getProgram( name ); // get the config for this program
 
     // all configurable properties in this
-    val fieldFinder = FieldFilter(clazz).with( Configurable::class.java );
+    val fieldFinder = FieldFilter( clazz ).with( Configurable::class.java );
 
     // configure all those things
     configure( config, fieldFinder, Boolean::class.java );

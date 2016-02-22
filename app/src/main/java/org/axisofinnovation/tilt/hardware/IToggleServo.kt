@@ -1,4 +1,4 @@
-package org.axisofinnovation.tilt
+package org.axisofinnovation.tilt.hardware
 
 /**
  * An interface for toggle-able servos

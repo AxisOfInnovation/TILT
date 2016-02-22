@@ -1,9 +1,9 @@
-package org.axisofinnovation.tilt
+package org.axisofinnovation.tilt.hardware
 
 /**
  * A wheel assembly for a motor and wheel.
  */
-class WheelAssembly( val Wheel: WheelType, val Motor: MotorType )
+class WheelAssembly( val Wheel: WheelType, val Motor: MotorType)
 {
 
     /**

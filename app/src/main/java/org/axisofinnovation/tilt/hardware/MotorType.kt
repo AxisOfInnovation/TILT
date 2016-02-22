@@ -1,4 +1,4 @@
-package org.axisofinnovation.tilt
+package org.axisofinnovation.tilt.hardware
 
 /**
  * The types of motors (andymark or tetrix). Useful for differentiating between the

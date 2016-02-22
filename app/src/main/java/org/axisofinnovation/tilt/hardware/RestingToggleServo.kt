@@ -1,4 +1,4 @@
-package org.axisofinnovation.tilt
+package org.axisofinnovation.tilt.hardware
 
 import com.qualcomm.robotcore.hardware.Servo
 

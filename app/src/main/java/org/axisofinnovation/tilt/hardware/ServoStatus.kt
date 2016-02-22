@@ -1,4 +1,4 @@
-package org.axisofinnovation.tilt
+package org.axisofinnovation.tilt.hardware
 
 /**
  * The positions of a servo.

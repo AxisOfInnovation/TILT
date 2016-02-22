@@ -1,4 +1,4 @@
-package org.axisofinnovation.tilt
+package org.axisofinnovation.tilt.hardware
 
 /**
  * Information regarding various wheel types.
