@@ -176,7 +176,7 @@ class ClassFilter
 /**
  * Utility class for locating Configurable properties in a class.
  */
-class FieldFilter( val clazz: Class< out OpMode >, val reference: Any? = null )
+class FieldFilter( val clazz: Class< * >, val reference: Any? = null )
 {
 
     //
@@ -185,7 +185,7 @@ class FieldFilter( val clazz: Class< out OpMode >, val reference: Any? = null )
 
     constructor( clazz: Class< out OpMode > ) : this( clazz, null );
 
-    constructor( reference: OpMode ) : this( reference.javaClass, reference );
+    constructor( reference: Any ) : this( reference.javaClass, reference );
 
     //
     // Fields (literally lol)
